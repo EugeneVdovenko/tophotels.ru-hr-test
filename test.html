@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовое задание</title>
+
+    <style>
+        table .c { color: red }
+        .a .c { color: green }
+    </style>
+
+    <script>
+        /*
+         * Тремя способами изменить цвет текста в таблице на зеленый с использованием JavaScript и/или js-библиотек
+         */
+        window.onload = function () {
+            // v1 - дописываем стиль к ячейке
+            var el = document.getElementsByClassName("c");
+            for (var i = 0; i < el.length; i++) {
+                el[i].style.color = "green";
+            }
+
+            // v2 - добавляем класс, подставиваясь под написанный CSS
+            var el = document.getElementById("t").children;
+            for (var i = 0; i < el.length; i++) {
+                el[i].classList.add("a");
+            }
+
+            // v3 - делаем текст всего документа зеленым и убираем соответствие написанному CSS
+            var el = document.getElementsByTagName("body");
+            el[0].setAttribute("style", "color: green;");
+
+            var el = document.getElementsByClassName("c");
+            for (var i = 0; i < el.length; i++) {
+                el[i].removeAttribute('class');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<table id="t">
+    <tr>
+        <td class="c">Текст</td>
+    </tr>
+</table>
+
+</body>
+</html>
